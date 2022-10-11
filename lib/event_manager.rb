@@ -7,5 +7,6 @@ contents = CSV.open(
   header_converters: :symbol)
 contents.each do |row|
   name = row[:first_name]
-  puts name
+  zipcode = row[:zipcode]
+  puts "#{name} #{zipcode}"
 end
