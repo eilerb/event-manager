@@ -1,15 +1,7 @@
 require 'csv'
 
 def clean_zipcode(zipcode)
-  if zipcode.nil?
-    zipcode = '00000'
-  elsif zipcode.length < 5
-    zipcode = zipcode.rjust(5, '0')
-  elsif zipcode.length > 5
-    zipcode = zipcode[0..4]
-  else
-    zipcode
-  end
+  zipcode.to_s.rjust(5, '0')[0..4]
 end
 
 puts 'Event Manager Initialized!'
@@ -25,6 +17,6 @@ contents.each do |row|
   zipcode = row[:zipcode]
 
   zipcode = clean_zipcode(row[:zipcode])
-  
+
   puts "#{name} #{zipcode}"
 end
