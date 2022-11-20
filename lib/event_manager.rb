@@ -66,7 +66,8 @@ contents_size -= 1
 hour_of_day = Array.new(contents_size)
 day_of_week = Array.new(contents_size)
 j = 0
-week = {0=>"sunday", 1=>"monday", 2=>"tuesday", 3=>"wednesday", 4=> "thursday", 5=> "friday", 6=>"saturday"}
+week = { 0 => 'sunday', 1 => 'monday', 2 => 'tuesday', 3 => 'wednesday', 4 => 'thursday', 5 => 'friday',
+         6 => 'saturday' }
 
 contents.each do |row|
   id = row[0]
@@ -95,5 +96,5 @@ contents.each do |row|
   save_thank_you_letter(id, form_letter)
 end
 
-puts "Most Active Hour is: #{frequency(hour_of_day)}"
+puts "Most Active Hour is: #{frequency(hour_of_day)}:00"
 puts "Most Active Day is: #{week[frequency(day_of_week)].capitalize}"
